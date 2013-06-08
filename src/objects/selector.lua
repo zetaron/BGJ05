@@ -12,6 +12,7 @@ end
 function Selector:draw()
     love.graphics.setColor(255, 0, 0)
     love.graphics.rectangle("fill", self.x, self.y, 32, 32)
+    love.graphics.setColor(255, 255, 255)
 end
 
 function Selector:update(dt)

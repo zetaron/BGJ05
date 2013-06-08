@@ -32,6 +32,9 @@ function Hud:draw()
 	love.graphics.draw(spriteBatch, 0, 0)
 	love.graphics.draw(underlay, self.x + underlayWidth + overlayWidth, self.y + underlayHeight, self.underlayRotation, 1, 1, underlayWidth, underlayHeight)
 	love.graphics.draw(overlay, self.x + overlayWidth, self.y)
+
+	love.graphics.print("TIME: " .. love.timer.getTime() - self.lastTime, 20, 30)
+	love.graphics.print("LAST TIME: " .. self.lastTime, 20, 60)
 end
 
 function Hud:update(dt)
@@ -41,8 +44,14 @@ function Hud:update(dt)
 
 	self.underlayRotation = math.rad(timePercent)
 
-	if self.underlayRotation >= 360 then
-		self.underlayRotation = 360
+	if somePasedTime <= 60 then
+		isDay = true
+	elseif somePasedTime >= 60 then
+		isDay = false
+	end
+
+	if self.underlayRotation >= math.rad(360) then
+		self.underlayRotation = math.rad(0)
 		self.lastTime = love.timer.getTime()
 	end
 end
