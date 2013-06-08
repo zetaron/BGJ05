@@ -1,11 +1,9 @@
--- intro
-
 require("util/gamestate")
 require("util/resources")
 
-Intro = class("Intro", GameState)
+Menu = class("Menu", GameState)
 
-function Intro:draw()
+function Menu:draw()
     love.graphics.setBackgroundColor(17, 17, 17)
     love.graphics.setColor(255, 255, 255)
 
@@ -14,6 +12,6 @@ function Intro:draw()
     love.graphics.print("Press Escape to skip intro", 10, 10)
 end
 
-function Intro:keypressed(k, u)
-    stack:pop()
+function Menu:keypressed(k, u)
+    stack:push(main)
 end
