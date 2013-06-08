@@ -18,6 +18,21 @@ function Main:draw()
     love.graphics.setBackgroundColor(17, 17, 17)
     love.graphics.setColor(255, 255, 255)
 
+    local windowWidth = love.graphics.getWidth()
+    local windowHeight = love.graphics.getHeight()
+
+    local grass = resources.images.grass
+    local grassWidth = grass:getWidth()
+    local grassHeight = grass:getHeight()
+
+    local grassBatch = love.graphics.newSpriteBatch(grass, 2000)
+    for x = 0, (windowWidth / grassWidth) do
+        for y = 0, (windowHeight / grassHeight) do
+            grassBatch:add(x * grassWidth, y * grassHeight)
+        end
+    end
+    love.graphics.draw(grassBatch)
+
     if isDay then
         self.drawDebugGrid()
         selector:draw()
