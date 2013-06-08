@@ -24,6 +24,7 @@ function love.load()
     resources:addImage("hud_tile", "GuiTile.png")
     resources:addImage("hud_overlay", "TimerFrame.png")
     resources:addImage("hud_underlay", "TimerFace.png")
+    resources:addImage("grass", "grass.png")
 
     resources:load()
     reset()

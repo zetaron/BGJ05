@@ -11,7 +11,7 @@ function Hud:__init()
 end
 
 function Hud:draw()
-	local tile = resources.images["hud_tile"]
+	local tile = resources.images.hud_tile
 	tile:setWrap("repeat", "clamp")
 
 	local windowWidth = love.graphics.getWidth()
@@ -22,11 +22,11 @@ function Hud:draw()
 		spriteBatch:add(x * tileWidth, 0)
 	end
 
-	local underlay = resources.images["hud_underlay"]
+	local underlay = resources.images.hud_underlay
 	local underlayWidth = underlay:getWidth() / 2
 	local underlayHeight = underlay:getHeight() / 2
 
-	local overlay = resources.images["hud_overlay"]
+	local overlay = resources.images.hud_overlay
 	local overlayWidth = overlay:getWidth() / 2
 
 	love.graphics.draw(spriteBatch, 0, 0)
