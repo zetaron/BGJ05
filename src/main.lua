@@ -27,7 +27,7 @@ end
 function love.draw()
     stack:draw()
 
-    love.graphics.setFont(resources.fonts.tiny)
+    --love.graphics.setFont(resources.fonts.tiny)
     love.graphics.print("FPS: " .. love.timer.getFPS(), 5, 5)
 end
 

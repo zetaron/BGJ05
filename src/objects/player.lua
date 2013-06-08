@@ -1,7 +1,7 @@
 require("util/gamestate")
 require("util/resources")
 
-Player = class("Player", GameState)
+Player = class("Player", Object)
 
 function Player:__init()
     self.x = 0
@@ -19,6 +19,6 @@ end
 
 
 function Player:keypressed(k, u)
-    
+
 end
 
