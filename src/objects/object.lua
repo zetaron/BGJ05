@@ -1,12 +1,12 @@
 require("util/gamestate")
 require("util/resources")
 
-Object = class("Object", GameState)
+Object = class("Object")
 
 function Object:__init()
 end
 
-function Object:draw() 
+function Object:draw()
 end
 
 function Object:update(dt)
