@@ -26,6 +26,10 @@ function love.load()
     resources:addImage("hud_underlay", "TimerFace.png")
     resources:addImage("grass", "grass.png")
     resources:addImage("light_turret", "LightTurret.png")
+    resources:addImage("player", "Player.png")
+    resources:addImage("weapon_sword", "sword.png")
+
+    love.graphics.setDefaultImageFilter("nearest", "nearest")
 
     resources:load()
     reset()
@@ -43,6 +47,16 @@ function love.draw()
 end
 
 function love.keypressed(k, u)
+    if k == "tab" then 
+        forceTime = true
+        if isDay then
+            isDay = false
+        else
+            isDay = true
+        end
+    end
+
+
     stack:keypressed(k, u)
 end
 

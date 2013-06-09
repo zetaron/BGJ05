@@ -10,6 +10,7 @@ Main = class("Main", GameState)
 function Main:start()
     entities = {}
     isDay = true
+    forceTime = false
     worldMeter = 32
 
     love.physics.setMeter(worldMeter)
@@ -47,6 +48,7 @@ function Main:draw()
     if not isDay then
         love.graphics.setColor(0,0,0,20)
         love.graphics.rectangle("fill", 0, 0, windowWidth, windowHeight)
+         love.graphics.setColor(255,255,255,255)
     end
 
     hud:draw()

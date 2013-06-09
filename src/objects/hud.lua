@@ -38,16 +38,19 @@ function Hud:draw()
 end
 
 function Hud:update(dt)
+	
 	local somePasedTime = (love.timer.getTime() - self.lastTime) 
 	local percentPerSecond = 180 / 60
 	local timePercent = percentPerSecond * somePasedTime
 
 	self.underlayRotation = math.rad(timePercent)
 
-	if somePasedTime <= 60 then
-		isDay = true
-	elseif somePasedTime >= 60 then
-		isDay = false
+	if not forceTime then
+		if somePasedTime <= 60 then
+			isDay = true
+		elseif somePasedTime >= 60 then
+			isDay = false
+		end
 	end
 
 	if self.underlayRotation >= math.rad(360) then
