@@ -28,7 +28,6 @@ function Selector:update(dt)
     end
 end
 
-
 function Selector:keypressed(k, u)
     if k == "up" or k == "w" then
         self.y = self.y - self.cellsize

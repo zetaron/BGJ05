@@ -38,13 +38,6 @@ function Main:draw()
     end
     love.graphics.draw(grassBatch)
 
-    if isDay then
-        self.drawDebugGrid()
-        selector:draw()
-    else
-        player:draw()
-    end
-
     for key,value in pairs(entities) do
         if value ~= nil and value.body ~= nil then
             value.fixture:getUserData():draw()

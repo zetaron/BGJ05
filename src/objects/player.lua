@@ -1,7 +1,7 @@
 require("util/gamestate")
 require("util/resources")
 
-Player = class("Player", Object)
+Player = class("Player", Entity)
 
 function Player:__init()
     self.sepeed = 1

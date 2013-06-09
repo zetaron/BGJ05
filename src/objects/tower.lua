@@ -18,9 +18,7 @@ function Tower:__init(x, y)
 end
 
 function Tower:draw()
-    love.graphics.setColor(0, 0, 255)
-    love.graphics.rectangle("fill", self.x, self.y, 32, 32)
-    love.graphics.setColor(255, 255, 255)
+    love.graphics.draw(resources.images.light_turret, self.x, self.y)
 end
 
 function Tower:update(dt)
