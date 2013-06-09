@@ -8,10 +8,15 @@ require("objects/tower")
 Main = class("Main", GameState)
 
 function Main:start()
-    player = Player()
-    selector = Selector()
     entities = {}
     isDay = true
+    worldMeter = 32
+
+    love.physics.setMeter(worldMeter)
+    world = love.physics.newWorld(0, 0, true) -- 9.81*worldMeter
+
+    player = Player()
+    selector = Selector()
 end
 
 function Main:draw()
@@ -41,34 +46,28 @@ function Main:draw()
     end
 
     for key,value in pairs(entities) do
-        value:draw()
+        if value ~= nil and value.body ~= nil then
+            value.fixture:getUserData():draw()
+        end
     end
 
 end
 
 function Main:update(dt)
-
-    if isDay then
-        selector:update(dt)
-    else
-        player:update(dt)
-    end
-
     for key,value in pairs(entities) do
-        value:update(dt)
+        if value ~= nil and value.body ~= nil then
+            value.fixture:getUserData():update(dt)
+        end
     end
 end
+
 function Main:keypressed(k, u)
     if k == "escape" then
         stack:pop()
     else
         if isDay then
-            if k == "return"then
-                local newTower = Tower()
-                newTower.x = selector.x
-                newTower.y = selector.y
-
-                table.insert(entities, newTower)
+            if k == "return" or k == " " then
+                Tower(selector.x, selector.y)
             end    
 
             selector:keypressed(k, u)
