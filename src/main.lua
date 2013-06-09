@@ -26,6 +26,10 @@ function love.load()
     resources:addImage("hud_underlay", "TimerFace.png")
     resources:addImage("grass", "grass.png")
     resources:addImage("light_turret", "LightTurret.png")
+    resources:addImage("player", "Player.png")
+    resources:addImage("weapon_sword", "sword.png")
+
+    love.graphics.setDefaultImageFilter("nearest", "nearest")
 
     resources:load()
     reset()
@@ -33,8 +37,6 @@ end
 
 function love.update(dt)
     stack:update(dt)
-
-    hud:update(dt)
 end
 
 function love.draw()
@@ -42,11 +44,19 @@ function love.draw()
 
     --love.graphics.setFont(resources.fonts.tiny)
     love.graphics.print("FPS: " .. love.timer.getFPS(), 5, 5)
-
-    hud:draw()
 end
 
 function love.keypressed(k, u)
+    if k == "tab" then 
+        forceTime = true
+        if isDay then
+            isDay = false
+        else
+            isDay = true
+        end
+    end
+
+
     stack:keypressed(k, u)
 end
 

@@ -11,6 +11,7 @@ function Main:start()
     entities = {}
     isDay = true
     worldMeter = 64
+    forceTime = false
 
     love.physics.setMeter(worldMeter)
     world = love.physics.newWorld(0, 0, true) -- 9.81*worldMeter
@@ -52,13 +53,18 @@ function Main:draw()
         end
     end
 
-    love.graphics.print(text, 40, 40)
+    if not isDay then
+        love.graphics.setColor(0,0,0,20)
+        love.graphics.rectangle("fill", 0, 0, windowWidth, windowHeight)
+         love.graphics.setColor(255,255,255,255)
+    end
 
+    hud:draw()
 end
 
 function Main:update(dt)
     world:update(dt)
-
+    hud:update(dt)
     for key,value in pairs(entities) do
         if value ~= nil and value.body ~= nil then
             value.fixture:getUserData():update(dt)
