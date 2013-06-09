@@ -6,7 +6,7 @@ Hud = class("Hud", Object)
 function Hud:__init()
 	self.x = (love.graphics.getWidth() / 2) - (128 / 2)
 	self.y = 0
-	self.underlayRotation = math.rad(0)
+	self.underlayRotation = math.rad(180)
 	self.lastTime = love.timer.getTime()
 end
 

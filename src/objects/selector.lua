@@ -7,6 +7,7 @@ function Selector:__init()
     self.cellsize = 32
     self.x = 0
     self.y = 0
+    self.canPlaceObject = true
 
     self.physicsObject = {}
     self.physicsObject.body = love.physics.newBody(world, self.x, self.y, "dynamic")
@@ -18,9 +19,17 @@ function Selector:__init()
 end
 
 function Selector:draw()
-    love.graphics.setColor(255, 0, 0)
-    love.graphics.rectangle("fill", self.x, self.y, 32, 32)
-    love.graphics.setColor(255, 255, 255)
+    if isDay then
+        if self.canPlaceObject then
+            love.graphics.setColor(255, 255, 0)
+            love.graphics.print("PLACE", 50, 50)
+        else
+            love.graphics.setColor(255, 0, 0)
+            love.graphics.print("NO PLACE", 50, 50)
+        end
+        love.graphics.rectangle("fill", self.x, self.y, 32, 32)
+        love.graphics.setColor(255, 255, 255)
+    end
 end
 
 function Selector:update(dt)
@@ -38,6 +47,9 @@ function Selector:keypressed(k, u)
     elseif k == "right" or k == "d" then
         self.x = self.x + self.cellsize
     end
+
+    self.physicsObject.body:setX(self.x)
+    self.physicsObject.body:setY(self.y)
 
     local width = love.graphics.getWidth() - self.cellsize
     local height = love.graphics.getHeight() - self.cellsize

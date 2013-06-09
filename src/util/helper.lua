@@ -22,7 +22,6 @@ end
 function class(name, super)
     -- main metadata
     local cls = {}
-    cls.__name = name
     cls.__super = super
 
     -- copy the members of the superclass
@@ -31,6 +30,8 @@ function class(name, super)
             cls[k] = v
         end
     end
+
+    cls.__name = name
 
     -- when the class object is being called,
     -- create a new object containing the class'

@@ -15,3 +15,14 @@ end
 function Object:keypressed(k, u)
 end
 
+function Object:beginContact(b, coll)
+end
+
+function Object:endContact(b, coll)
+end
+
+function Object:preSolve(b, coll)
+end
+
+function Object:postSolve(b, coll)
+end

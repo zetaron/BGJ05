@@ -9,8 +9,8 @@ function Tower:__init(x, y)
     self.y = y
 
     self.physicsObject = {}
-	self.physicsObject.body = love.physics.newBody(world, self.x, self.y, "dynamic")
-    self.physicsObject.shape = love.physics.newCircleShape(24)
+	self.physicsObject.body = love.physics.newBody(world, self.x, self.y, "static")
+    self.physicsObject.shape = love.physics.newRectangleShape(1, 1)
     self.physicsObject.fixture = love.physics.newFixture(self.physicsObject.body, self.physicsObject.shape, 1)
     self.physicsObject.fixture:setUserData(self)
 
