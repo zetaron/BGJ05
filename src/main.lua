@@ -33,8 +33,6 @@ end
 
 function love.update(dt)
     stack:update(dt)
-
-    hud:update(dt)
 end
 
 function love.draw()
@@ -42,8 +40,6 @@ function love.draw()
 
     --love.graphics.setFont(resources.fonts.tiny)
     love.graphics.print("FPS: " .. love.timer.getFPS(), 5, 5)
-
-    hud:draw()
 end
 
 function love.keypressed(k, u)

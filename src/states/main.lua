@@ -44,9 +44,16 @@ function Main:draw()
         end
     end
 
+    if not isDay then
+        love.graphics.setColor(0,0,0,20)
+        love.graphics.rectangle("fill", 0, 0, windowWidth, windowHeight)
+    end
+
+    hud:draw()
 end
 
 function Main:update(dt)
+    hud:update()
     for key,value in pairs(entities) do
         if value ~= nil and value.body ~= nil then
             value.fixture:getUserData():update(dt)

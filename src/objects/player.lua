@@ -26,6 +26,7 @@ end
 function Player:draw()
 	if not isDay then
     	love.graphics.setColor(255, 255, 255)
+        
     	love.graphics.rectangle("fill", self.x, self.y, 10, 10)
     end
 end
